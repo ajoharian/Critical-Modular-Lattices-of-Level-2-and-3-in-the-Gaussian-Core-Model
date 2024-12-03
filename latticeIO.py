@@ -1,6 +1,5 @@
 import os
 from lattice import Lattice
-from gitter import Gitter
 import concurrent.futures
 
 
@@ -9,13 +8,6 @@ def get_all_lattices_from(path):
     pkl_files = [os.path.join(path, f) for f in os.listdir(path) if f.endswith('.pkl')]
     for lattice_path in pkl_files:
         lattices.append(Lattice.load_from_pickle(lattice_path))
-    return lattices
-
-def get_all_gitter_from(path):
-    lattices = []
-    pkl_files = [os.path.join(path, f) for f in os.listdir(path) if f.endswith('.pkl')]
-    for lattice_path in pkl_files:
-        lattices.append(Gitter.load_from_pickle(lattice_path))
     return lattices
 
 
